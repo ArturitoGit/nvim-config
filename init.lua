@@ -41,6 +41,8 @@ vim.cmd([[set splitright]])
 vim.cmd([[set number]])
 vim.cmd([[set relativenumber]])
 
+require('easy_numbers')
+
 -- Test autocommands
 vim.api.nvim_create_autocmd(
   "BufAdd",
