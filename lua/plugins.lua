@@ -33,6 +33,12 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-jdtls'
   use 'neovim/nvim-lspconfig'
 
+  -- Completion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
   -- Code actions pop-up
   use {
     'weilbith/nvim-code-action-menu',
