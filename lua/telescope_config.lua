@@ -24,6 +24,9 @@ require("telescope").setup {
   },
 
   pickers = {
+    colorscheme = {
+      enable_preview = true
+    },
     live_grep = {
       layout_strategy = 'vertical',
       mappings = {

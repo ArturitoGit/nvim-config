@@ -15,14 +15,13 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-ui-select.nvim' }
 
   -- Theme
+  use 'rebelot/kanagawa.nvim'
+  use 'jacoborus/tender.vim'
+  use 'savq/melange-nvim'
+  use 'rmehri01/onenord.nvim'
+  use 'AlexvZyl/nordic.nvim'
   use 'marko-cerovac/material.nvim'
-  -- use 'shaunsingh/nord.nvim'
-  use 'arcticicestudio/nord-vim'
-  use 'Mofiqul/dracula.nvim'
-  use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
   use 'Mofiqul/vscode.nvim'
-  use 'ful1e5/onedark.nvim'
-  use 'doums/darcula'
   
   -- TreeSitter
   use 'nvim-treesitter/nvim-treesitter'

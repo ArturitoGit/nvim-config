@@ -14,7 +14,7 @@ vim.keymap.set('n', '<A-t>', ':NERDTreeFind<CR>')
 require('telescope_config')
 
 -- Theme
-vim.g.material_style = "darker"
+vim.cmd([[colorscheme onenord]])
 
 -- TreeSitter
 require('treesitter')
@@ -24,9 +24,6 @@ require('completion')
 
 -- Markdown
 require('markdown_config')
-
--- Theme
-vim.cmd([[colorscheme vscode]])
 
 -- Surround
 require('nvim-surround').setup()
