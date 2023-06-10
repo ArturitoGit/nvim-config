@@ -44,6 +44,9 @@ vim.cmd([[set relativenumber]])
 
 require('easy_numbers')
 
+-- Make :term run in Terminal Mode
+vim.cmd([[autocmd TermOpen * startinsert]])
+
 -- Test autocommands
 vim.api.nvim_create_autocmd(
   "BufAdd",
