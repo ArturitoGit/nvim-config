@@ -37,6 +37,7 @@ cmp.setup({
 local completion_enable_filetypes = {
 	'java',
         'groovy',
+        'kotlin', 'kt',
 	'sh',
         'lua'
 }

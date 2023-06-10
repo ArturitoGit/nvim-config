@@ -29,3 +29,9 @@ require('lspconfig').sqlls.setup {
     }
   }
 }
+
+-- Kotlin
+require('lspconfig').kotlin_language_server.setup {
+  root_dir = function() return vim.fn.getcwd() end,
+  capablities = require('cmp_nvim_lsp').default_capabilities(),
+}
