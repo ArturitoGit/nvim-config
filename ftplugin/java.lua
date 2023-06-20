@@ -83,6 +83,7 @@ local config = {
 }
 
 -- Some global java mappings
+vim.o.wrap = false
 vim.keymap.set('n', '<tab>', [[:call search('[A-Z]')<CR>]]) -- Go to next Uppercase letter
 
 require('jdtls').start_or_attach(config)
