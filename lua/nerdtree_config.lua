@@ -15,4 +15,4 @@ vim.g.NERDTreeMapQuit='<C-j>'
 
 -- Enter NERDTree
 vim.keymap.set('n', '<C-j>', toggle)
-vim.keymap.set('n', '<A-j>', openAtCurrentFile)
+vim.keymap.set('n', '<Leader>j', openAtCurrentFile)

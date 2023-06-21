@@ -1,5 +1,7 @@
--- Remapping
-vim.api.nvim_set_keymap('n', 'Tn', ':TestNearest<CR>', {})
-vim.api.nvim_set_keymap('n', 'Tl', ':TestLast<CR>', {})
-vim.api.nvim_set_keymap('n', 'Tf', ':TestFile<CR>', {})
-vim.api.nvim_set_keymap('n', 'Tc', ':TestClass<CR>', {})
+-- Key mapping
+vim.keymap.set('n', '<Leader>t', ':TestLast<CR>')
+vim.api.nvim_create_user_command('Tn', 'TestNearest', {})
+vim.api.nvim_create_user_command('Tl', 'TestLast', {})
+vim.api.nvim_create_user_command('Tf', 'TestFile', {})
+vim.api.nvim_create_user_command('Tc', 'TestClass', {})
+vim.api.nvim_create_user_command('Tv', 'TestVisit', {})

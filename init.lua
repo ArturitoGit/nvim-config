@@ -1,3 +1,7 @@
+-- Leader key
+vim.keymap.set('n', '<space>', '<nop>')
+vim.g.mapleader = " "
+
 require('plugins')
 
 -- Helpers
