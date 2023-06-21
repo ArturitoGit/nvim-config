@@ -8,10 +8,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require('lsp_config')
 
--- NerdTree
-vim.cmd([[let g:NERDTreeHijackNetrw=0]]) -- Disable opening with NerdTree
-vim.cmd([[nnoremap <silent> <C-t> :NERDTreeToggle<CR>]])
-vim.keymap.set('n', '<A-t>', ':NERDTreeFind<CR>')
+require('nerdtree_config')
 
 -- Telescope
 require('telescope_config')
