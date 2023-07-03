@@ -11,8 +11,7 @@ vim.g.NERDTreeHijackNetrw=0
 
 -- In NERDTree
 vim.g.NERDTreeMapJumpNextSibling='<C-K>' -- Make <C-j> free
-vim.g.NERDTreeMapQuit='<C-j>'
 
 -- Enter NERDTree
-vim.keymap.set('n', '<C-j>', toggle)
-vim.keymap.set('n', '<Leader>j', openAtCurrentFile)
+vim.keymap.set('n', '<Leader>j', toggle)
+vim.keymap.set('n', '<Leader>k', openAtCurrentFile)

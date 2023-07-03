@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 require('plugins')
 
+
 -- Helpers
 require('helpers/selection')
 
@@ -38,27 +39,18 @@ require('nvim-surround').setup()
 -- Tests
 require('tests')
 
--- Global configurations
-vim.cmd([[set splitright]])
-vim.cmd([[set number]])
-vim.cmd([[set relativenumber]])
-
 require('easy_numbers')
 
 -- Make :term run in Terminal Mode
 vim.cmd([[autocmd TermOpen * startinsert]])
 
--- Test autocommands
-vim.api.nvim_create_autocmd(
-  "BufAdd",
-  {
-    command = [[echo "Test java file"]],
-    pattern = "*.java"
-  }
-)
+-- Global configurations
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.splitright = true
 
-function fill()
-  local nbOfLines = #vim.api.nvim_buf_get_lines(0, 0, -1, false)
-  if nbOfLines > 0 then return end
-  vim.api.nvim_buf_set_lines(0,0, false, { "public class Test {", "}" })
-end
+-- Easy navigation
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
