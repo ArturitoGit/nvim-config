@@ -27,6 +27,9 @@ require("telescope").setup {
     colorscheme = {
       enable_preview = true
     },
+    find_files = {
+      no_ignore = true
+    },
     live_grep = {
       layout_strategy = 'vertical',
       mappings = {
