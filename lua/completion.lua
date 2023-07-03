@@ -1,4 +1,4 @@
----- Set up nvim-cmp.
+-- Set up nvim-cmp.
 local cmp = require'cmp'
 
 cmp.setup({
@@ -39,7 +39,9 @@ local completion_enable_filetypes = {
         'groovy',
         'kotlin', 'kt',
 	'sh',
-        'lua'
+        'lua',
+        'javascript', 'js',
+        'typescript', 'ts'
 }
 cmp.setup.filetype(completion_enable_filetypes, {
   enabled = true
