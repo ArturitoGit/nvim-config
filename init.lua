@@ -18,6 +18,8 @@ require('nerdtree_config')
 -- Telescope
 require('telescope_config')
 
+require('awk')
+
 -- Theme
 vim.cmd([[colorscheme onenord]])
 
