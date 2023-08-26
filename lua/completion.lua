@@ -34,35 +34,15 @@ cmp.setup({
 })
 
 -- Enable completion on specific file types
-local completion_enable_filetypes = {
-	'java',
-        'groovy',
-        'kotlin', 'kt',
-	'sh',
-        'lua',
-        'javascript', 'js',
-        'typescript', 'ts'
-}
-cmp.setup.filetype(completion_enable_filetypes, {
-  enabled = true
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  },
-  enabled = true
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  }),
-  enabled = true
-})
+cmp.setup.filetype({
+  'java',
+  'groovy',
+  'kotlin', 'kt',
+  'python',
+  'sh',
+  'lua',
+  'javascript', 'js',
+  'typescript', 'ts',
+  'tsx', 'typescriptreact'
+  }, { enabled = true }
+)
