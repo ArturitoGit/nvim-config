@@ -1,15 +1,24 @@
--- Variables
-    
-local java_8_home = "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-local java_17_home = "/usr/lib/jvm/java-17-openjdk-amd64"
-local jdtls_home = "/home/arturito/.local/share/nvim/mason/packages/jdtls"
-local jdtls_bundles = "/home/arturito/Documents/prog/java/eclipse.jdt.ls/pde/server"
+-- Some global java mappings
+-- Go to next Uppercase letter
+vim.keymap.set('n', '<tab>', function() vim.fn.search('[A-Z]') end)
+
+-- Fetch configuration
+local config = require('config/config-tree').sub('java')
+if config == nil then
+  print("No configuration found for java -> JDTLS disabled")
+  return
+end
+
+-- Build JDTLS config
+local java_17 = config.mandatory('java_17')
+local jdtls_home = config.mandatory('jdtls_home')
+local jdtls_launcher = vim.fn.glob(jdtls_home .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-local config = {
+local jdtlsConfig = {
   cmd = {
     -- Java version
-    java_17_home .. '/bin/java',
+    java_17 .. '/bin/java',
 
     -- Command options
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -23,7 +32,7 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- Jdtls launcher
-    '-jar', jdtls_home .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', jdtls_launcher,
 
     -- Jdtls configuration file
     '-configuration', jdtls_home .. '/config_linux',
@@ -33,36 +42,16 @@ local config = {
   },
 
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
-  -- root_dir = vim.fs.dirname(vim.fs.find({'pom.xml', 'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 
   settings = {
     java = {
       configuration = {
-        runtimes = {
-          {
-            name = "JavaSE-1.8",
-            path = "/usr/lib/jvm/java-1.8.0-openjdk-amd64/",
-          },
-          {
-            name = "JavaSE-11",
-            path = "/usr/lib/jvm/java-1.11.0-openjdk-amd64/",
-          },
-          {
-            name = "JavaSE-17",
-            path = "/usr/lib/jvm/java-1.17.0-openjdk-amd64/",
-          },
-          {
-            name = "JavaSE-19",
-            path = "/usr/lib/jvm/java-1.19.0-openjdk-amd64/",
-          },
-        },
+        runtimes = {{"JavaSE-17", java_17}},
       },
     },
   },
 
-  init_options = {
-    bundles = vim.split(vim.fn.glob(jdtls_bundles .. "/*.jar"), "\n")
-  },
+  init_options = { --[[ Configured above from config --]] },
 
   on_init = function(client)
 
@@ -70,23 +59,28 @@ local config = {
     client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
 
     -- Disable LSP highlighting
-    client.server_capabilities.semanticTokensProvider = nil
-
-    -- Remap LSP functionnalities
-    vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename)
-    vim.keymap.set('n', '<A-CR>', vim.lsp.buf.code_action)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-    vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations)
-    vim.keymap.set('n', '<A-o>', require('telescope.builtin').lsp_document_symbols)
-    vim.keymap.set('n', '<A-,>', vim.lsp.buf.hover)
+    -- client.server_capabilities.semanticTokensProvider = nil
   end
 }
 
--- Some global java mappings
-vim.o.wrap = false
-vim.keymap.set('n', '<tab>', [[:call search('[A-Z]')<CR>]]) -- Go to next Uppercase letter
+-- Configure runtimes
+local function setRuntime(name, key)
+  if config.has(key) then
+    table.insert(jdtlsConfig.settings.java.configuration.runtimes, {
+      name = name,
+      path = config.get(key)
+    })
+  end
+end
+setRuntime("JavaSE-1.8", "java_8")
+setRuntime("JavaSE-11", "java_11")
+setRuntime("JavaSE-19", "java_19")
 
-require('jdtls').start_or_attach(config)
+-- Configure bundle
+if config.has('jdtls_bundles') then
+    local bundles = vim.fn.glob(config.get('jdtls_bundles') .. "/*.jar")
+    jdtlsConfig.init_options.bundles = vim.split(bundles, "\n")
+end
 
--- Indentation
-vim.cmd [[set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab]]
+-- Apply LSP configuration
+require('jdtls').start_or_attach(jdtlsConfig)
