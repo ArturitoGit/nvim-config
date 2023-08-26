@@ -12,7 +12,8 @@ require("telescope").setup {
 	    "build/*",
 	    "bin/*",
 	    "gradle/*", ".m2/*",
-            "*.jar"
+            "*.jar",
+            "dist/", "node_modules/"
     },
     path_display = {
       shorten = {
@@ -55,12 +56,7 @@ require("telescope").load_extension("ui-select")
 -- Remap
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-n>', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.buffers, {})
-vim.keymap.set('n', '<C-h>', builtin.highlights, {})
-vim.keymap.set('n', '<C-h>', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 vim.keymap.set('n', 'gs', builtin.lsp_workspace_symbols, {})
-
 vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
--- Live grep with selected as default text
 vim.keymap.set('v', '<C-f>', "y:Telescope live_grep default_text=<C-r>0<CR>")

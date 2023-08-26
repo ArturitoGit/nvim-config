@@ -48,34 +48,15 @@ return require('packer').startup(function(use)
   }
 
   -- NerdTree
-  use 'scrooloose/nerdtree'
-  -- Game
-  use 'ThePrimeagen/vim-be-good'
+  -- use 'scrooloose/nerdtree'
 
   -- Tests
   use 'vim-test/vim-test'
-
-  -- Markdown
-  use({'jakewvincent/mkdnflow.nvim',
-    config = function()
-        require('mkdnflow').setup()
-    end
-  })
-
-  -- Surround
-  use({
-      "kylechui/nvim-surround",
-      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-      config = function()
-          require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
-          })
-      end
-  })
 
   -- Null-LS
   use 'jose-elias-alvarez/null-ls.nvim'
 
   -- Git
   use 'tpope/vim-fugitive'
+
 end)
