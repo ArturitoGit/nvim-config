@@ -30,7 +30,7 @@ vim.api.nvim_create_user_command('GG', 'tab Git', {})
 
 -- Center after jump
 vim.keymap.set('n', 'n', 'nzz')
-vim.keymap.set('n', 'p', 'pzz')
+vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
