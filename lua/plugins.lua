@@ -25,7 +25,8 @@ return require('packer').startup(function(use)
   use 'AlexvZyl/nordic.nvim'
   use 'marko-cerovac/material.nvim'
   use 'Mofiqul/vscode.nvim'
-  
+  use 'tyrannicaltoucan/vim-deep-space'
+
   -- TreeSitter
   use 'nvim-treesitter/nvim-treesitter'
 
