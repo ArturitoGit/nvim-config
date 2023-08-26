@@ -60,3 +60,9 @@ require('lspconfig').kotlin_language_server.setup {
   settings = { kotlin = { compiler = { jvm = { target = "17" } } } },
   capablities = require('cmp_nvim_lsp').default_capabilities(),
 }
+
+-- Python
+require('lspconfig').pylsp.setup {
+  root_dir = function() return vim.fn.getcwd() end,
+  capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
