@@ -34,6 +34,9 @@ vim.keymap.set('n', 'p', 'pzz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+-- Custom tabline
+vim.cmd('source ./vim/tabline/tabline.vim')
+
 -- Plugins
 require('plugins')
 
