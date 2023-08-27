@@ -35,7 +35,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- Custom tabline
-vim.cmd('source ./vim/tabline/tabline.vim')
+vim.cmd('runtime ./vim/tabline/tabline.vim')
 
 -- Plugins
 require('plugins')
@@ -45,7 +45,7 @@ require('helpers/selection')
 require('easy_numbers')
 require('awk')
 
----- Theme
+-- Theme
 vim.cmd([[colorscheme onenord]])
 
 -- Side bar
