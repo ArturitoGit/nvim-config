@@ -9,6 +9,9 @@ vim.o.splitright = true
 vim.o.wrap = false
 vim.o.cursorline = true
 
+-- Enable line number in netwr
+vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+
 -- Make :term run in Terminal Mode
 vim.cmd([[autocmd TermOpen * startinsert]])
 
