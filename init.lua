@@ -28,6 +28,9 @@ vim.o.wildignore = '**/dist/**,**/node_modules/**'
 vim.keymap.set('v', '<lt>', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
+-- Keep cursor position after visual mode yank
+vim.keymap.set('v', 'y', 'ygv<Esc>')
+
 -- Open Git status in a new tab
 vim.api.nvim_create_user_command('GG', 'tab Git', {})
 
