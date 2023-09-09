@@ -11,6 +11,9 @@ vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Terminal to normal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
 -- Enable line number in netwr
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
