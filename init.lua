@@ -8,6 +8,8 @@ vim.o.relativenumber = true
 vim.o.splitright = true
 vim.o.wrap = false
 vim.o.cursorline = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Enable line number in netwr
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
