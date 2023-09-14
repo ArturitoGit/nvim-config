@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 require('lspconfig').eslint.setup {
+  filetypes = { 'javascript' },
   capablities = require('cmp_nvim_lsp').default_capabilities(),
   root_dir = function() return vim.fn.getcwd() end,
 }
