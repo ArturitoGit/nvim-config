@@ -1,7 +1,3 @@
--- Some global java mappings
--- Go to next Uppercase letter
-vim.keymap.set('n', '<tab>', function() vim.fn.search('[A-Z]') end)
-
 -- Fetch configuration
 local config = require('config/config-tree').sub('java')
 if config == nil then
