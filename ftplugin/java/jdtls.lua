@@ -1,3 +1,5 @@
+require('helpers/utils')
+
 -- Fetch configuration
 local config = require('config/config-tree').sub('java')
 if config == nil then
@@ -11,12 +13,16 @@ local jdtls_home = config.mandatory('jdtls_home')
 local jdtls_launcher = vim.fn.glob(jdtls_home .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-local jdtlsConfig = {
-  cmd = {
-    -- Java version
-    java_17 .. '/bin/java',
+local function asRuntimeFor(jreVersion)
+  return function(path)
+    return { path, jreVersion }
+  end
+end
 
-    -- Command options
+local jdtlsConfig = {
+
+  cmd = FilterNil(
+    java_17..'/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -25,29 +31,32 @@ local jdtlsConfig = {
     '-Xmx1g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-    -- Jdtls launcher
+    IfDefined(config.get('lombok_jar'), PrefixItWith('-javaagent:')),
     '-jar', jdtls_launcher,
-
-    -- Jdtls configuration file
-    '-configuration', jdtls_home .. '/config_linux',
-
-    -- Project folder
-    '-data', jdtls_home .. '/projects/' .. project_name,
-  },
+    '-configuration', jdtls_home..'/config_linux',
+    '-data', jdtls_home..'/projects/'..project_name
+  ),
 
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
 
   settings = {
     java = {
       configuration = {
-        runtimes = {{"JavaSE-17", java_17}},
+        runtimes = FilterNil(
+          {"JavaSE-17", java_17},
+          IfDefined(config.get('java_8'), asRuntimeFor('JavaSE-1.8')),
+          IfDefined(config.get('java_11'), asRuntimeFor('JavaSE-11')),
+          IfDefined(config.get('java_19'), asRuntimeFor('JavaSE-19'))
+        )
       },
     },
   },
 
-  init_options = { --[[ Configured above from config --]] },
+  init_options = FilterNil(
+    IfDefined(config.get('jdtls_bundle'), function(path)
+      return vim.split(vim.fn.glob(path .. "/*.jar", "\n"))
+    end)
+  ),
 
   on_init = function(client)
 
@@ -58,25 +67,6 @@ local jdtlsConfig = {
     -- client.server_capabilities.semanticTokensProvider = nil
   end
 }
-
--- Configure runtimes
-local function setRuntime(name, key)
-  if config.has(key) then
-    table.insert(jdtlsConfig.settings.java.configuration.runtimes, {
-      name = name,
-      path = config.get(key)
-    })
-  end
-end
-setRuntime("JavaSE-1.8", "java_8")
-setRuntime("JavaSE-11", "java_11")
-setRuntime("JavaSE-19", "java_19")
-
--- Configure bundle
-if config.has('jdtls_bundles') then
-    local bundles = vim.fn.glob(config.get('jdtls_bundles') .. "/*.jar")
-    jdtlsConfig.init_options.bundles = vim.split(bundles, "\n")
-end
 
 -- Apply LSP configuration
 require('jdtls').start_or_attach(jdtlsConfig)
