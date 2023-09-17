@@ -11,6 +11,7 @@ vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.keywordprg = ''
+vim.o.grepprg = 'grep -Irn --exclude=*.{class,jar} --exclude-dir={.git,**/target/**,node_modules,dist}'
 
 -- Terminal to normal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
