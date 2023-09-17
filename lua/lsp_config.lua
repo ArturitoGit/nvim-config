@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations)
     vim.keymap.set('n', '<A-o>', require('telescope.builtin').lsp_document_symbols)
     vim.keymap.set('n', '<A-,>', vim.lsp.buf.hover)
+    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float)
   end
 })
 
