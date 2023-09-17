@@ -45,8 +45,9 @@ vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
--- Custom tabline
+-- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
+vim.cmd('runtime ./vim/autobracket/autobracket.vim')
 
 -- Plugins
 require('plugins')
