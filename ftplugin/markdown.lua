@@ -5,4 +5,4 @@ putListPointAfter('o', 'n')
 putListPointAfter('O', 'n')
 putListPointAfter('<CR>', 'i')
 
-vim.keymap.set('n', '<C-o>', toggleListElement)
+vim.keymap.set('n', '<C-o>', toggleListElement, { buffer=true })
