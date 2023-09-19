@@ -45,6 +45,10 @@ vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+-- Let 2 line spaces on zt
+vim.keymap.set('n', 'zt', 'zt2<C-y>')
+vim.keymap.set('n', 'zb', 'zb2<C-e>')
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
