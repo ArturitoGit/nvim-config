@@ -49,6 +49,9 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'zt', 'zt2<C-y>')
 vim.keymap.set('n', 'zb', 'zb2<C-e>')
 
+-- Yank * and +
+vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
