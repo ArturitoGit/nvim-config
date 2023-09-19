@@ -10,15 +10,15 @@ vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.keywordprg = ''
 
 -- Terminal to normal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+-- Make :term run in Terminal Mode
+vim.cmd([[autocmd TermOpen * startinsert]])
 
 -- Enable line number in netwr
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-
--- Make :term run in Terminal Mode
-vim.cmd([[autocmd TermOpen * startinsert]])
 
 vim.o.compatible = false
 vim.cmd('syntax enable')
