@@ -52,20 +52,16 @@ local jdtlsConfig = {
     },
   },
 
-  init_options = FilterNil(
-    IfDefined(config.get('jdtls_bundle'), function(path)
-      return vim.split(vim.fn.glob(path .. "/*.jar", "\n"))
-    end)
-  ),
+  init_options = {
+    bundles = FilterNil(
+      IfDefined(config.get('jdtls_bundle'), function(path)
+        return vim.split(vim.fn.glob(path .. "/*.jar"), "\n")
+      end)
+    ),
+  },
 
-  on_init = function(client)
-
-    -- Do I need this ?
-    client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-
-    -- Disable LSP highlighting
-    -- client.server_capabilities.semanticTokensProvider = nil
-  end
+  -- Nvim-cmp provides additional capabilities, let JDTLS know about them
+  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
 -- Apply LSP configuration
