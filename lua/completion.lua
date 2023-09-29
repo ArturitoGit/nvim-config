@@ -38,6 +38,7 @@ cmp.setup.filetype({
   'lua',
   'javascript', 'js',
   'typescript', 'ts',
+  'css',
   'tsx', 'typescriptreact'
   }, { enabled = true }
 )

@@ -14,20 +14,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+-- Build capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require('lspconfig').eslint.setup {
   filetypes = { 'javascript' },
-  capablities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = capabilities,
   root_dir = function() return vim.fn.getcwd() end,
 }
 
 require('lspconfig').tsserver.setup {
-  capablities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = capabilities,
   root_dir = function() return vim.fn.getcwd() end,
+}
+
+require('lspconfig').cssls.setup {
+  capabilities = capabilities
 }
 
 -- LUA
 require('lspconfig').lua_ls.setup {
-  capablities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -61,7 +70,7 @@ require('lspconfig').sqlls.setup {
 require('lspconfig').kotlin_language_server.setup {
   root_dir = function() return vim.fn.getcwd() end,
   settings = { kotlin = { compiler = { jvm = { target = "17" } } } },
-  capablities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = capabilities,
 }
 
 -- Python
