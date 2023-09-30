@@ -67,7 +67,7 @@ require('easy_numbers')
 require('awk')
 
 -- Theme
-vim.cmd([[colorscheme onenord]])
+require('theme')
 
 -- Side bar
 -- require('nerdtree_config')
