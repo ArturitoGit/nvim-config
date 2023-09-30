@@ -52,6 +52,7 @@ vim.keymap.set('n', 'zb', 'zb2<C-e>')
 
 -- Yank * and +
 vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
+vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true })
 
 -- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
