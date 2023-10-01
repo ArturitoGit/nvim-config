@@ -39,3 +39,13 @@ require('gitsigns').setup {
     enable = false
   },
 }
+
+require('diffview').setup {
+  use_icons = false,
+  signs = {
+    fold_closed = "> ",
+    fold_open = "v ",
+    done = "✓",
+  },
+}
+

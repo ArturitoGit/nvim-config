@@ -84,7 +84,7 @@ require("mason-lspconfig").setup()
 require('lsp_config')
 
 -- Git
-require('gitsigns_config')
+require('git_config')
 
 -- Auto-completion
 require('completion')
