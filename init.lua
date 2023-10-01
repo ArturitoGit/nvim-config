@@ -11,7 +11,11 @@ vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.keywordprg = ''
+
+-- Grep configuration
 vim.o.grepprg = 'grep -Irn --exclude=*.{class,jar} --exclude-dir={.git,**/target/**,node_modules,dist}'
+vim.keymap.set('n', '<Leader>g', [["kyiw:<C-u>grep '<C-r>k']]) -- Feed grep with word under cursor
+vim.keymap.set('v', '<Leader>g', [["ky:<C-u>grep '<C-r>k']]) -- Feed grep with visual selection
 
 -- Terminal to normal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
