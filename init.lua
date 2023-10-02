@@ -96,5 +96,17 @@ require('completion')
 -- Null-ls
 -- require('null_ls_config')
 
+-- Plugin : Glance
+require('glance').setup()
+vim.keymap.set('n', 'gD', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', 'gR', '<CMD>Glance references<CR>')
+vim.keymap.set('n', 'gY', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', 'gM', '<CMD>Glance implementations<CR>')
+vim.cmd([[ 
+  highlight GlanceWinBarFilename guifg=#c8d0e0 guibg=#1f2530
+  highlight GlanceWinBarFilepath guifg=#c8d0e0 guibg=#1f2530
+  highlight GlanceWinBarTitle guifg=#c8d0e0 guibg=#1f2530
+]])
+
 -- Tests
 require('tests')
