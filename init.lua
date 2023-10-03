@@ -12,6 +12,10 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.keywordprg = ''
 
+-- Scroll horizontally
+vim.keymap.set('n', '<C-q>', '15zh')
+vim.keymap.set('n', '<C-s>', '15zl')
+
 -- Grep configuration
 vim.o.grepprg = 'grep -Irn --exclude=*.{class,jar} --exclude-dir={.git,**/target/**,node_modules,dist}'
 vim.keymap.set('n', '<Leader>g', [["kyiw:<C-u>grep '<C-r>k']]) -- Feed grep with word under cursor
