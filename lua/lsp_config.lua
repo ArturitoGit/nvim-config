@@ -6,6 +6,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename)
     vim.keymap.set('n', '<A-CR>', vim.lsp.buf.code_action)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references)
     vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations)
     vim.keymap.set('n', '<A-o>', require('telescope.builtin').lsp_document_symbols)
     vim.keymap.set('n', '<A-,>', vim.lsp.buf.hover)

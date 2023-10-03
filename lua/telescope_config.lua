@@ -56,7 +56,6 @@ require("telescope").load_extension("ui-select")
 -- Remap
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-n>', builtin.find_files, {})
-vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 vim.keymap.set('n', 'gs', builtin.lsp_workspace_symbols, {})
 vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
 vim.keymap.set('v', '<Leader>f', "y:Telescope live_grep default_text=<C-r>0<CR>")
