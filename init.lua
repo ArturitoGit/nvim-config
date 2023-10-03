@@ -11,6 +11,7 @@ vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.keywordprg = ''
+vim.o.laststatus = 3
 
 -- Scroll horizontally
 vim.keymap.set('n', '<C-q>', '15zh')
