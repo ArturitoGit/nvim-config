@@ -38,7 +38,7 @@ vim.cmd('filetype plugin on')
 -- Enable :find
 vim.o.path = vim.o.path..'**'
 vim.o.wildmenu = true
-vim.o.wildignore = '**/dist/**,**/node_modules/**,**/.git/**,**/public/**'
+vim.o.wildignore = '**/dist/**,**/node_modules/**,**/.git/**,**/public/**,**/*.class'
 
 -- Keep visual selection after indenting
 vim.keymap.set('v', '<lt>', '<gv')
