@@ -47,9 +47,6 @@ vim.keymap.set('v', '>', '>gv')
 -- Keep cursor position after visual mode yank
 vim.keymap.set('v', 'y', 'ygv<Esc>')
 
--- Open Git status in a new tab
-vim.api.nvim_create_user_command('GG', 'tab Git', {})
-
 -- Center after jump
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')

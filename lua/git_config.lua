@@ -1,4 +1,6 @@
-require('gitsigns').setup {
+local gitsigns = require('gitsigns')
+
+gitsigns.setup {
   signs = {
     add          = { text = '│' },
     change       = { text = '│' },
@@ -49,3 +51,8 @@ require('diffview').setup {
   },
 }
 
+-- Mappings
+vim.api.nvim_create_user_command('GG', 'tab Git', {})
+vim.api.nvim_create_user_command('Dif', 'DiffviewOpen', { nargs = "*" })
+vim.api.nvim_create_user_command('His', 'DiffviewFileHistory', { nargs = "*" })
+vim.keymap.set('n', '<Leader>b', function() gitsigns.blame_line({full=true}) end)
