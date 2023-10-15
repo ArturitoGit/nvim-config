@@ -60,6 +60,14 @@ local jdtlsConfig = {
     ),
   },
 
+  on_attach = function()
+    vim.keymap.set('n', '<A-CR>', function()
+      vim.lsp.buf.code_action({ filter = function(action)
+        return action.kind ~= 'quickassist'
+      end})
+    end, { buffer = 0 })
+  end,
+
   -- Nvim-cmp provides additional capabilities, let JDTLS know about them
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 }

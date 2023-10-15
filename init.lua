@@ -72,6 +72,7 @@ require('plugins')
 require('helpers/selection')
 require('easy_numbers')
 require('awk')
+require('select')
 
 -- Theme
 require('theme')
