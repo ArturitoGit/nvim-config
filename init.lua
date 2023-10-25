@@ -70,7 +70,6 @@ require('plugins')
 
 -- Own
 require('helpers/selection')
-require('easy_numbers')
 require('awk')
 require('select')
 
