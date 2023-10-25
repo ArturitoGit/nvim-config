@@ -1,8 +1,10 @@
+local M = {}
+
 ---
 -- Return an array, with provided arguments as elements.
 -- Nil arguments are not part of the result.
 -- Order is preserved.
-function FilterNil(...)
+M.filter_nil = function(...)
   local array = {}
   for _, value in pairs({...}) do
     if value ~= nil then
@@ -18,7 +20,7 @@ end
 ---@param value any
 ---@param transform function
 ---@return any
-function IfDefined(value, transform)
+M.if_defined = function(value, transform)
   if not value then
     return nil
   end
@@ -32,8 +34,10 @@ end
 --- as argument, and return it prefixed with <prefix>.
 ---@param prefix string
 ---@return function
-function PrefixItWith(prefix)
+M.prefix_it_with = function(prefix)
   return function(value)
     return prefix..value
   end
 end
+
+return M

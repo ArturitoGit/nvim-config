@@ -1,4 +1,6 @@
-require('helpers/utils')
+local utils = require('helpers/utils')
+local filter_nil = utils.filter_nil
+local if_defined = utils.if_defined
 
 -- Fetch configuration
 local config = require('config/config-tree').sub('java')
@@ -21,7 +23,7 @@ end
 
 local jdtlsConfig = {
 
-  cmd = FilterNil(
+  cmd = filter_nil(
     java_17..'/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
@@ -31,7 +33,7 @@ local jdtlsConfig = {
     '-Xmx1g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    IfDefined(config.get('lombok_jar'), PrefixItWith('-javaagent:')),
+    if_defined(config.get('lombok_jar'), utils.prefix_it_with('-javaagent:')),
     '-jar', jdtls_launcher,
     '-configuration', jdtls_home..'/config_linux',
     '-data', jdtls_home..'/projects/'..project_name
@@ -42,19 +44,19 @@ local jdtlsConfig = {
   settings = {
     java = {
       configuration = {
-        runtimes = FilterNil(
+        runtimes = filter_nil(
           {"JavaSE-17", java_17},
-          IfDefined(config.get('java_8'), asRuntimeFor('JavaSE-1.8')),
-          IfDefined(config.get('java_11'), asRuntimeFor('JavaSE-11')),
-          IfDefined(config.get('java_19'), asRuntimeFor('JavaSE-19'))
+          if_defined(config.get('java_8'), asRuntimeFor('JavaSE-1.8')),
+          if_defined(config.get('java_11'), asRuntimeFor('JavaSE-11')),
+          if_defined(config.get('java_19'), asRuntimeFor('JavaSE-19'))
         )
       },
     },
   },
 
   init_options = {
-    bundles = FilterNil(
-      IfDefined(config.get('jdtls_bundle'), function(path)
+    bundles = filter_nil(
+      if_defined(config.get('jdtls_bundle'), function(path)
         return vim.split(vim.fn.glob(path .. "/*.jar"), "\n")
       end)
     ),
