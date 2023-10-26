@@ -61,6 +61,13 @@ vim.keymap.set('n', 'zb', 'zb2<C-e>')
 vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
 vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true })
 
+-- Easily hide search results
+vim.keymap.set('n', '<Leader>l', ':noh<CR>')
+
+-- Like * but do not jump
+vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')
+vim.keymap.set('v', 'ù', '"ky/<C-R>k')
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
