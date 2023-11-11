@@ -47,12 +47,6 @@ vim.keymap.set('v', '>', '>gv')
 -- Keep cursor position after visual mode yank
 vim.keymap.set('v', 'y', 'ygv<Esc>')
 
--- Center after jump
-vim.keymap.set('n', 'n', 'nzz')
-vim.keymap.set('n', 'N', 'Nzz')
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-
 -- Let 2 line spaces on zt
 vim.keymap.set('n', 'zt', 'zt2<C-y>')
 vim.keymap.set('n', 'zb', 'zb2<C-e>')
