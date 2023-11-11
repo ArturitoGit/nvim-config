@@ -39,6 +39,7 @@ cmp.setup.filetype({
   'javascript', 'js',
   'typescript', 'ts',
   'css',
-  'tsx', 'typescriptreact'
+  'tsx', 'typescriptreact',
+  'haskell'
   }, { enabled = true }
 )

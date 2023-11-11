@@ -20,6 +20,27 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local util = require('lspconfig').util
+
+require('lspconfig').hls.setup {
+  capabilities = capabilities,
+  filetypes = { "haskell", 'lhaskell', 'cabal' },
+  cmd = { "haskell-language-server-wrapper", "--lsp" },
+  root_dir = function (filepath)
+    return (
+      util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project')(filepath)
+      or util.root_pattern('*.cabal', 'package.yaml')(filepath)
+    )
+  end,
+  settings = {
+    haskell = {
+      cabalFormattingProvider = "cabalfmt",
+      formattingProvider = "ormolu"
+    }
+  },
+  single_file_support = true
+}
+
 require('lspconfig').eslint.setup {
   filetypes = { 'javascript' },
   capabilities = capabilities,
