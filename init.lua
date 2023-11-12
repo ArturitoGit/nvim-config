@@ -62,6 +62,9 @@ vim.keymap.set('n', '<Leader>l', ':noh<CR>')
 vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')
 vim.keymap.set('v', 'ù', '"ky/<C-R>k')
 
+-- Save & Run configuration
+vim.keymap.set('n', '<Leader>r', ':<C-u>wall | make<CR>')
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
