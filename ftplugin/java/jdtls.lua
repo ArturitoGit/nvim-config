@@ -31,6 +31,14 @@ local jdtlsConfig = {
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-Xmx1g',
+    -- For better performances
+    '-XX:+UseParallelGC',
+    '-XX:GCTimeRatio=4',
+    '-XX:AdaptiveSizePolicyWeight=90',
+    '-Dsun.zip.disableMemoryMapping=true',
+    '-Xmx4G',
+    '-Xms100m',
+    -- ---
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     if_defined(config.get('lombok_jar'), utils.prefix_it_with('-javaagent:')),

@@ -30,7 +30,6 @@ cmp.setup({
 
 -- Enable completion on specific file types
 cmp.setup.filetype({
-  'java',
   'groovy',
   'kotlin', 'kt',
   'python',
@@ -43,3 +42,7 @@ cmp.setup.filetype({
   'haskell'
   }, { enabled = true }
 )
+
+-- Disable autocompletion for JAVA
+cmp.setup.filetype({ 'java' }, { enabled = true, completion = { autocomplete = false }})
+vim.keymap.set('i', '<C-n>', cmp.complete)
