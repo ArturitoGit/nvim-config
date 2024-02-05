@@ -17,7 +17,7 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 local function asRuntimeFor(jreVersion)
   return function(path)
-    return { path, jreVersion }
+    return { name=jreVersion, path=path }
   end
 end
 
@@ -45,7 +45,7 @@ local jdtlsConfig = {
     java = {
       configuration = {
         runtimes = filter_nil(
-          {"JavaSE-17", java_17},
+          { name="JavaSE-17", path=java_17 },
           if_defined(config.get('java_8'), asRuntimeFor('JavaSE-1.8')),
           if_defined(config.get('java_11'), asRuntimeFor('JavaSE-11')),
           if_defined(config.get('java_19'), asRuntimeFor('JavaSE-19'))
