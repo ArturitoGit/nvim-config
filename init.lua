@@ -68,6 +68,7 @@ vim.keymap.set('n', '<Leader>r', ':<C-u>wall | make<CR>')
 vim.cmd('runtime ./vim/filetypes.vim')
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
+vim.cmd('runtime ./vim/quickfix-shrink-paths.vim')
 
 -- Plugins
 require('plugins')
