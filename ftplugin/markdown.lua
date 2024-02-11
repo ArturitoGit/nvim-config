@@ -6,3 +6,5 @@ putListPointAfter('O', 'n')
 putListPointAfter('<CR>', 'i')
 
 vim.keymap.set('n', '<C-o>', toggleListElement, { buffer=true })
+
+vim.cmd('setl conceallevel=2 concealcursor=n')
