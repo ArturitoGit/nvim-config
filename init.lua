@@ -13,6 +13,12 @@ vim.o.smartcase = true
 vim.o.keywordprg = ''
 vim.o.laststatus = 3
 
+-- Default indenting
+vim.o.tabstop=4
+vim.o.shiftwidth=4
+vim.o.softtabstop=0
+vim.o.expandtab=false
+
 -- Open NetRW
 vim.keymap.set('n', 'à', ':Ex<CR>', { silent=true })
 
