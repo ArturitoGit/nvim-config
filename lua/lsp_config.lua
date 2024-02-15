@@ -3,15 +3,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function()
     -- Remap LSP functionnalities
-    vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename)
-    vim.keymap.set('n', '<A-CR>', vim.lsp.buf.code_action)
+    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
+    vim.keymap.set('n', '<C-n>', vim.lsp.buf.code_action)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references)
     vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations)
-    vim.keymap.set('n', '<A-o>', require('telescope.builtin').lsp_document_symbols)
-    vim.keymap.set('n', '<A-,>', vim.lsp.buf.hover)
+    vim.keymap.set('n', '<Leader>s', require('telescope.builtin').lsp_document_symbols)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover)
     vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float)
-    vim.keymap.set('i', '<A-,>', vim.lsp.buf.signature_help)
+    vim.keymap.set('i', '<C-,>', vim.lsp.buf.signature_help)
   end
 })
 

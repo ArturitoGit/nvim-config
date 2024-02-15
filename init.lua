@@ -62,7 +62,7 @@ vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')
 vim.keymap.set('v', 'ù', '"ky/<C-R>k')
 
 -- Save & Run configuration
-vim.keymap.set('n', '<Leader>r', ':<C-u>wall | make<CR>')
+vim.keymap.set('n', '<Leader><CR>', ':<C-u>wall | make<CR>')
 
 -- Go to previous/next element in quickfix list
 vim.keymap.set('n', '²', ':cp<CR>')
