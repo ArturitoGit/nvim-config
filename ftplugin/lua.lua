@@ -1,2 +1,2 @@
 -- Test current file
-vim.keymap.set('n', '<A-t>', [[:vsplit | term nvim --headless -c 'PlenaryBustedFile %'<CR>]])
+vim.api.nvim_create_user_command('Tn', [[:vsplit | term nvim --headless -c 'PlenaryBustedFile %'<CR>]], {})

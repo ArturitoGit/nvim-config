@@ -23,7 +23,6 @@
  ^n           |   -   | LSP: Code actions                 |
  ^[arrows]    |   -   | -                                 |
  ^[hjkl]      |   n   | Navigation                        |
- Alt-t        |   n   | Test current file                 |   (x) pour les raccourcis :T*
  <C-n>        |   n   | Telescope: find file              |   (x)
  <C-,>        |    i  | LSP: Signature help               |
  <Leader>f    |  vn   | Telescope: live grep              |   (x)
