@@ -14,8 +14,8 @@ vim.o.keywordprg = ''
 vim.o.laststatus = 3
 
 -- Scroll horizontally
-vim.keymap.set('n', '<C-q>', '15zh')
-vim.keymap.set('n', '<C-s>', '15zl')
+vim.keymap.set('n', '<Left>', '20zh')
+vim.keymap.set('n', '<Right>', '20zl')
 
 -- Grep configuration
 vim.o.grepprg = 'grep -Irn --exclude=*.{class,jar} --exclude-dir={.git,**/target/**,node_modules,dist}'

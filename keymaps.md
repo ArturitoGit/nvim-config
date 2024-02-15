@@ -12,6 +12,8 @@
  £          |   -   | -                                 |
  µ          |   -   | -                                 |
  §          |   -   | -                                 |
+ Left       |   n   | Scroll left                       |
+ Right      |   n   | Scroll right                      |
  ^o         |  vn   | Markdown: Toggle list element     |
  ^p         |   -   | -                                 |
  ^q         |   -   | -                                 |
@@ -20,8 +22,6 @@
  ^n         |   -   | -                                 |
  ^[arrows]  |   -   | -                                 |
  ^[hjkl]    |   n   | Navigation                        |
- ^Left      |   n   | Scroll left                       |   -> Caractère spécial
- ^Right     |   n   | Scroll right                      |   -> Caractère spécial
  Alt-<CR>   |   n   | LSP: Code actions                 |   -> ^n puisque ^n est déjà pris pour auto-completion en mode Insertion
  Alt-r      |   n   | LSP: Rename                       |   -> <Leader>r pour "rename" _TODO_ Chercher/Remplacer sans LSP
  Alt-o      |   n   | LSP: Document symbols             |   -> <Leader>s pour "symbols"
