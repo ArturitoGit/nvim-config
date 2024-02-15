@@ -48,9 +48,6 @@ return require('packer').startup(function(use)
     cmd = 'CodeActionMenu',
   }
 
-  -- NerdTree
-  -- use 'scrooloose/nerdtree'
-
   -- Tests
   use 'vim-test/vim-test'
 

@@ -85,9 +85,6 @@ require('select')
 -- Theme
 require('theme')
 
--- Side bar
--- require('nerdtree_config')
-
 -- Telescope
 require('telescope_config')
 

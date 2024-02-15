@@ -27,8 +27,6 @@
  <C-n>        |   n   | Telescope: find file              |   (x)
  <C-,>        |    i  | LSP: Signature help               |
  <Leader>f    |  vn   | Telescope: live grep              |   (x)
- <Leader>j    |   n   | Nerdtree: toggle                  |   (x)
- <Leader>k    |   n   | Nerdtree: open at current file    |   (x)
  <Leader>e    |   n   | NetRW: Open                       |   -> Caractère spécial
  <Leader>b    |   n   | gitsigns: blame line              |
  <Leader>d    |   n   | LSP: Diagnostic                   |
