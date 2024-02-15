@@ -67,8 +67,8 @@ vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true }
 vim.keymap.set('n', '<Leader>l', ':noh<CR>')
 
 -- Like * but do not jump
-vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')
-vim.keymap.set('v', 'ù', '"ky/<C-R>k')
+-- vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')
+-- vim.keymap.set('v', 'ù', '"ky/<C-R>k')
 
 -- Save & Run configuration
 vim.keymap.set('n', '<Leader><CR>', ':<C-u>wall | make<CR>')
