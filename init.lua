@@ -64,6 +64,10 @@ vim.keymap.set('v', 'ù', '"ky/<C-R>k')
 -- Save & Run configuration
 vim.keymap.set('n', '<Leader>r', ':<C-u>wall | make<CR>')
 
+-- Go to previous/next element in quickfix list
+vim.keymap.set('n', '²', ':cp<CR>')
+vim.keymap.set('n', 'é', ':cn<CR>')
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/filetypes.vim')
 vim.cmd('runtime ./vim/tabline/tabline.vim')
