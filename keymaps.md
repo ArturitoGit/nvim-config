@@ -7,6 +7,7 @@
  ²            |   n   | :cprevious                        |
  é            |   n   | :cnext                            |
  è            |   -   | -                                 |
+ à            |   n   | NetRW: Open                       |
  €            |   -   | -                                 |
  °            |   -   | -                                 |
  +            |   -   | -                                 |
@@ -26,7 +27,6 @@
  <C-n>        |   n   | Telescope: find file              |   (x)
  <C-,>        |    i  | LSP: Signature help               |
  <Leader>f    |  vn   | Telescope: live grep              |   (x)
- <Leader>e    |   n   | NetRW: Open                       |   -> Caractère spécial
  <Leader>b    |   n   | gitsigns: blame line              |
  <Leader>d    |   n   | LSP: Diagnostic                   |
  <Leader>t    |   n   | Tests: Test last                  |
