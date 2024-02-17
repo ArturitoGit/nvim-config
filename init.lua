@@ -90,6 +90,7 @@ require('plugins')
 require('helpers/selection')
 require('awk')
 require('select')
+require('java/methods/find_methods')
 
 -- Theme
 require('theme')
