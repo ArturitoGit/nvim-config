@@ -1,17 +1,28 @@
+local function remap_local(mode, key, action, options)
+  if options == nil then options = {} end
+  options.buffer = 0
+  vim.keymap.set(mode, key, action, options)
+end
+
 -- LSP related mappings
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function()
+  callback = function(infos)
+    local filetype = vim.bo[infos.buf].filetype
+
     -- Remap LSP functionnalities
-    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
-    vim.keymap.set('n', '<C-n>', vim.lsp.buf.code_action)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-    vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations)
-    vim.keymap.set('n', '<Leader>s', require('telescope.builtin').lsp_document_symbols)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float)
-    vim.keymap.set('i', '<C-,>', vim.lsp.buf.signature_help)
+    remap_local('n', '<Leader>r', vim.lsp.buf.rename)
+    remap_local('n', '<C-n>', vim.lsp.buf.code_action)
+    remap_local('n', 'gd', vim.lsp.buf.definition)
+    remap_local('n', 'gr', vim.lsp.buf.references)
+    remap_local('n', 'gi', require('telescope.builtin').lsp_implementations)
+    remap_local('n', '<Leader>s', require('telescope.builtin').lsp_document_symbols)
+    remap_local('n', '<Leader>d', vim.diagnostic.open_float)
+    remap_local('i', '<C-,>', vim.lsp.buf.signature_help)
+
+    if (filetype ~= "lua") then
+      remap_local('n', 'K', vim.lsp.buf.hover)
+    end
   end
 })
 
