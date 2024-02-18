@@ -42,6 +42,7 @@ vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 vim.o.compatible = false
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
+vim.cmd('packadd cfilter')
 
 -- Enable :find
 vim.o.path = vim.o.path..'**'
