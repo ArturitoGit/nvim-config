@@ -92,6 +92,7 @@ require('helpers/selection')
 require('awk')
 require('select')
 require('java/methods/find_methods')
+require('quickfix.remove')
 
 -- Theme
 require('theme')

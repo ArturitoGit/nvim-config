@@ -35,6 +35,7 @@
  <Leader>l    |   n   | noh: Hide search results          |
  <Leader>r    |   n   | LSP: Rename                       |
  <Leader>s    |   n   | LSP: Document symbols             |
+ <Leader>x    |  v    | Quickfix : Remove selected        |
  <Leader><CR> |   n   | Save & Run configuration          |
 
 ## Les actions à ajouter
