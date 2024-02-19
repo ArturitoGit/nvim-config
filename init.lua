@@ -47,7 +47,7 @@ vim.cmd('packadd cfilter')
 -- Enable :find
 vim.o.path = vim.o.path..'**'
 vim.o.wildmenu = true
-vim.o.wildignore = '**/dist/**,**/node_modules/**,**/.git/**,**/public/**,**/*.class'
+vim.o.wildignore = '**/target/**,**/dist/**,**/node_modules/**,**/.git/**,**/public/**,**/*.class'
 
 -- Keep visual selection after indenting
 vim.keymap.set('v', '<lt>', '<gv')
