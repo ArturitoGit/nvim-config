@@ -1,4 +1,4 @@
-local display = require('java.methods.display')
+local display = require('java.methods.locate.display')
 
 local M = {}
 

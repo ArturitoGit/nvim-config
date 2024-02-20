@@ -1,4 +1,4 @@
-local loc = require('java.methods.location_list')
+local loc = require('java.methods.locate.locations')
 
 local function on_enter_methods_location(callback)
   vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
