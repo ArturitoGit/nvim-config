@@ -3,7 +3,11 @@ local open_popup = require('select.popup')
 
 local function titles_in(entries)
   return utils.map(entries, function(entry)
-    return entry[2].title
+    if (entry[2]) then
+      return entry[2].title
+    else
+      return entry
+    end
   end)
 end
 
@@ -32,4 +36,10 @@ local function test()
 end
 
 -- Override default ui.select function
-vim.ui.select = select
+-- vim.ui.select = select
+
+-- TODO : Handle second argument of select()
+-- which contains a list of options
+-- One option is { prompt: "some" }
+-- This option should be implemented in order
+-- for JdtWipeDataAndRestart to work

@@ -1,12 +1,4 @@
-local function ts_query(expression)
-  return vim.treesitter.query.parse("java", expression)
-end
-
-local function root(buffer)
-  local parser = vim.treesitter.get_parser(buffer, "java", {})
-  local tree = parser:parse()[1]
-  return tree:root()
-end
+local ts = require('java.methods.ts_utils')
 
 local function parse_privacy(modifiers)
   local privacies = {
@@ -25,10 +17,11 @@ local function parse_privacy(modifiers)
 end
 
 local function parse_parameters(params_node, buffer)
-  local query = ts_query("(formal_parameters (formal_parameter (identifier) @param_name))")
-  local params = {}
+  local query = ts.query("(formal_parameters (formal_parameter (identifier) @param_name))")
+  local target = { buffer = buffer, node = params_node }
 
-  for _, node in query:iter_captures(params_node, buffer, 0, -1) do
+  local params = {}
+  for _, node in ts.execute(query, target) do
     local param_name = vim.treesitter.get_node_text(node, buffer)
     table.insert(params, param_name)
   end
@@ -38,11 +31,12 @@ end
 
 local function parse_method(method_node, buffer)
 
-  local query = ts_query([[(method_declaration
+  local query = ts.query([[(method_declaration
     (modifiers) @method_modifiers
     (identifier) @method_name
     (formal_parameters) @method_parameters
   )]])
+  local target = { buffer = buffer, node = method_node }
 
   local method = {
     buffer = buffer,
@@ -53,7 +47,7 @@ local function parse_method(method_node, buffer)
     parameters = {}
   }
 
-  for id, node in query:iter_captures(method_node, buffer, 0, -1) do
+  for id, node in ts.execute(query, target) do
     local name = query.captures[id]
     local content = vim.treesitter.get_node_text(node, buffer)
     if (name == "method_name") then
@@ -74,10 +68,10 @@ end
 local M = {}
 
 M.find_methods = function(buffer)
-  local methods = {}
+  local query = ts.query("(method_declaration) @method")
 
-  local query = ts_query("(method_declaration) @method")
-  for _, node in query:iter_captures(root(buffer), buffer, 0, -1) do
+  local methods = {}
+  for _, node in ts.execute(query, { buffer = buffer }) do
     table.insert(methods, parse_method(node, buffer));
   end
 

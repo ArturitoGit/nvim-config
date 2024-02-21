@@ -92,6 +92,7 @@ require('helpers/selection')
 require('awk')
 require('select')
 require('java.methods.locate')
+require('java.methods.select')
 require('quickfix.remove')
 
 -- Theme
