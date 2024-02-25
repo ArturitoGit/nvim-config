@@ -3,7 +3,7 @@
  Raccourci    | Modes | Action                            |   Comment
 --------------------------------------------------------------------------------------------------------------------
  K            |   n   | LSP: Hover                        |
- ù            |  vn   | Search under cursor               |   Pourrait être amélioré pour permettre la répétition
+ ù            |  vn   | -                                 |
  ²            |   n   | :cprevious                        |
  é            |   n   | :cnext                            |
  è            |   -   | -                                 |
