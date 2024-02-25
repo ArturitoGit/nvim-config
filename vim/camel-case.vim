@@ -26,6 +26,7 @@ func! EnableCamel()
 	noremap <buffer> <silent> w <Cmd>call CamelForward()<CR>
 	noremap <buffer> <silent> b <Cmd>call CamelBackward()<CR>
 	noremap <buffer> <silent> iw :<C-U>call InnerCamel()<CR>
+	noremap <buffer> <silent> ie iw
 endfunc
 
 func! DisableCamel()
@@ -33,6 +34,7 @@ func! DisableCamel()
 	unmap <buffer> w
 	unmap <buffer> b
 	unmap <buffer> iw
+	unmap <buffer> ie
 endfunc
 
 func! ToggleCamel()
