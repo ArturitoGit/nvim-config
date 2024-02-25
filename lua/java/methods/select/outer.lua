@@ -8,11 +8,10 @@ local function is_empty(line)
   return string.match(line_content(line), "^$") ~= nil
 end
 
-local function last_empty_after(line)
-  local last_line = vim.api.nvim_buf_line_count(0)
+local function last_empty_before(line)
   local current_line = line
-  while current_line < last_line and is_empty(current_line+1) do
-    current_line = current_line + 1
+  while current_line > 1 and is_empty(current_line-1) do
+    current_line = current_line - 1
   end
   return current_line
 end
@@ -23,8 +22,8 @@ M.method = function()
   local inner_method = inner.method()
   if inner_method == nil then return nil end
   return {
-    first = inner_method.first,
-    last = last_empty_after(inner_method.last)
+    first = last_empty_before(inner_method.first),
+    last = inner_method.last
   }
 end
 
