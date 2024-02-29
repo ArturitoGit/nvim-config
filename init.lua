@@ -49,10 +49,6 @@ vim.o.path = vim.o.path..'**'
 vim.o.wildmenu = true
 vim.o.wildignore = '**/target/**,**/dist/**,**/node_modules/**,**/.git/**,**/public/**,**/*.class'
 
--- Keep visual selection after indenting
-vim.keymap.set('v', '<lt>', '<gv')
-vim.keymap.set('v', '>', '>gv')
-
 -- Keep cursor position after visual mode yank
 vim.keymap.set('v', 'y', 'ygv<Esc>')
 
