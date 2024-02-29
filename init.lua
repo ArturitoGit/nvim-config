@@ -60,6 +60,10 @@ vim.keymap.set('n', 'zb', 'zb2<C-e>')
 vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
 vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true })
 
+-- Macros
+vim.keymap.set('n', 'Q', 'Qj')
+vim.keymap.set('v', 'Q', ":<C-U>'<,'>norm! Q<CR>")
+
 -- Easily hide search results
 vim.keymap.set('n', '<Leader>l', ':noh<CR>')
 
