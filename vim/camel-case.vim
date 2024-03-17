@@ -23,18 +23,22 @@ endfunc
 
 func! EnableCamel()
 	let b:camel=1
-	noremap <buffer> <silent> w <Cmd>call CamelForward()<CR>
-	noremap <buffer> <silent> b <Cmd>call CamelBackward()<CR>
-	noremap <buffer> <silent> iw :<C-U>call InnerCamel()<CR>
-	noremap <buffer> <silent> ie iw
+	noremap <buffer> <silent> ù <Cmd>call CamelForward()<CR>
+	noremap <buffer> <silent> µ <Cmd>call CamelBackward()<CR>
+	noremap <buffer> <silent> iù :<C-U>call InnerCamel()<CR>
 endfunc
+
+func! EnableGlobalCamel()
+	noremap <silent> ù <Cmd>call CamelForward()<CR>
+	noremap <silent> µ <Cmd>call CamelBackward()<CR>
+	noremap <silent> iù :<C-U>call InnerCamel()<CR>
+endfun
 
 func! DisableCamel()
 	let b:camel=0
-	unmap <buffer> w
-	unmap <buffer> b
-	unmap <buffer> iw
-	unmap <buffer> ie
+	unmap <buffer> ù
+	unmap <buffer> µ
+	unmap <buffer> iù
 endfunc
 
 func! ToggleCamel()
@@ -49,3 +53,6 @@ func! ToggleCamel()
 endfunc
 
 com! ToggleCamel call ToggleCamel()
+
+" Enable it
+call EnableGlobalCamel()
