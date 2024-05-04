@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
   -- LSP
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-  use 'mfussenegger/nvim-jdtls'
+  -- use 'mfussenegger/nvim-jdtls'
   use 'neovim/nvim-lspconfig'
 
   -- Completion
@@ -43,10 +43,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
 
   -- Code actions pop-up
-  use {
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu',
-  }
+--   use {
+--     'weilbith/nvim-code-action-menu',
+--     cmd = 'CodeActionMenu',
+--   }
 
   -- Tests
   use 'vim-test/vim-test'
