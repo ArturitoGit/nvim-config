@@ -76,6 +76,9 @@ vim.keymap.set('n', '<Leader><CR>', ':<C-u>wall | make<CR>')
 vim.keymap.set('n', '²', ':cp<CR>')
 vim.keymap.set('n', 'é', ':cn<CR>')
 
+-- Toggle quickfix list
+vim.keymap.set('n', '<Leader>q', require('quickfix.toggle'))
+
 -- Custom vim scritps
 vim.cmd('runtime ./vim/filetypes.vim')
 vim.cmd('runtime ./vim/abbreviations.vim')
