@@ -19,9 +19,6 @@ vim.o.shiftwidth=4
 vim.o.softtabstop=0
 vim.o.expandtab=false
 
--- Open NetRW
-vim.keymap.set('n', 'à', ':Ex<CR>', { silent=true })
-
 -- Scroll horizontally
 vim.keymap.set('n', '<Left>', '20zh')
 vim.keymap.set('n', '<Right>', '20zl')
@@ -100,6 +97,9 @@ require('quickfix.remove')
 
 -- Theme
 require('theme')
+
+-- Neotree
+require('neotree_config')
 
 -- Telescope
 require('telescope_config')

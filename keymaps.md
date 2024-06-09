@@ -7,7 +7,7 @@
  ²            |   n   | :cprevious                        |
  é            |   n   | :cnext                            |
  è            |   -   | -                                 |
- à            |   n   | NetRW: Open                       |
+ à            |   -   | -                                 |
  €            |   -   | -                                 |
  °            |   -   | -                                 |
  +            |   -   | -                                 |
@@ -26,6 +26,7 @@
  ^[hjkl]      |   n   | Navigation                        |
  <C-n>        |   n   | Telescope: find file              |   (x)
  <C-,>        |    i  | LSP: Signature help               |
+ <Leader>e    |   n   | Open file-explorer                |
  <Leader>f    |  vn   | Telescope: live grep              |   (x)
  <Leader>b    |   n   | gitsigns: blame line              |
  <Leader>d    |   n   | LSP: Diagnostic                   |
