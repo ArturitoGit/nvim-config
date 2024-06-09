@@ -28,6 +28,7 @@ vim.keymap.set('n', '<Right>', '20zl')
 
 -- Grep configuration
 vim.o.grepprg = 'grep -Irn --exclude-dir={\\.git,target,node_modules,dist,dump,.idea}'
+vim.o.grepformat = '%f:%l:%m'
 vim.keymap.set('n', '<Leader>g', [["kyiw:<C-u>grep '<C-r>k']]) -- Feed grep with word under cursor
 vim.keymap.set('v', '<Leader>g', [["ky:<C-u>grep '<C-r>k']]) -- Feed grep with visual selection
 
