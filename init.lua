@@ -34,9 +34,6 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- Make :term run in Terminal Mode
 vim.cmd([[autocmd TermOpen * startinsert]])
 
--- Enable line number in netwr
-vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-
 vim.o.compatible = false
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
