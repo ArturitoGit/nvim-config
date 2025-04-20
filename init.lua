@@ -16,6 +16,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.keywordprg = ''
 vim.o.laststatus = 3
+vim.o.inccommand = 'split'
 
 -- Default indenting
 vim.o.tabstop=4

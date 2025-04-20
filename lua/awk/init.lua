@@ -1,0 +1,21 @@
+local awk = require('awk.run_awk')
+local text = require('awk.buffer_text')
+
+vim.api.nvim_create_user_command("Awk",
+  function(cmd)
+    local result = awk(text.current(), cmd.args)
+    text.set(0, result)
+  end,
+  {
+    nargs = "*",
+    range = true,
+    preview = function(opts, _, buf)
+      if not buf then
+        return
+      end
+      local preview = awk(text.current(), opts.args)
+      text.set(buf, preview)
+      return 2
+    end
+  }
+)
