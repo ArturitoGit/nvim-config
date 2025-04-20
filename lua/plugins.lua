@@ -39,6 +39,9 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-jdtls'
   use 'neovim/nvim-lspconfig'
 
+  -- DAP
+  use 'mfussenegger/nvim-dap'
+
   -- Completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'

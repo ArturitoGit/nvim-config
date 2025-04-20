@@ -113,6 +113,7 @@ require('treesitter')
 require("mason").setup()
 require("mason-lspconfig").setup()
 require('lsp_config')
+require('dap_config')
 
 -- Git
 require('git_config')
