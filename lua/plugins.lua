@@ -65,4 +65,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'sindrets/diffview.nvim'
 
+  -- Dev-ecosystem
+  use 'ArturitoGit/dev-ecosystem.nvim'
+
 end)

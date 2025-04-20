@@ -128,5 +128,10 @@ require('lspconfig').kotlin_language_server.setup {
 -- Python
 require('lspconfig').pylsp.setup {
   root_dir = function() return vim.fn.getcwd() end,
-  capabilities = require('cmp_nvim_lsp').default_capabilities()
+  capabilities = capabilities
+}
+
+-- dev-ecosystem
+require 'dev-ecosystem'.setup {
+  capabilities = capabilities
 }
