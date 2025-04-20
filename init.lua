@@ -62,6 +62,9 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR><Esc>', { silent = true })
 vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
 vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true })
 
+-- Expand current window
+vim.keymap.set('n', '<Leader>o', '<Cmd>only<CR>', { silent = true })
+
 -- Macros
 vim.keymap.set('n', 'Q', 'Qj')
 vim.keymap.set('v', 'Q', ":<C-U>'<,'>norm! Q<CR>")
