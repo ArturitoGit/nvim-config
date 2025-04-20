@@ -55,6 +55,9 @@ vim.keymap.set('v', 'y', 'ygv<Esc>')
 vim.keymap.set('n', 'zt', 'zt2<C-y>')
 vim.keymap.set('n', 'zb', 'zb2<C-e>')
 
+-- Hide search result with normal escape
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR><Esc>', { silent = true })
+
 -- Yank * and +
 vim.keymap.set('v', '<Leader>y', '"+ygv"*y')
 vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true })
@@ -62,9 +65,6 @@ vim.keymap.set('n', '<Leader>y', ':<C-u>%y +<CR>:<C-u>%y *<CR>', { silent=true }
 -- Macros
 vim.keymap.set('n', 'Q', 'Qj')
 vim.keymap.set('v', 'Q', ":<C-U>'<,'>norm! Q<CR>")
-
--- Easily hide search results
-vim.keymap.set('n', '<Leader>l', ':noh<CR>')
 
 -- Like * but do not jump
 -- vim.keymap.set('n', 'ù', '"kyiw/<C-R>k')

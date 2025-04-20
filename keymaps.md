@@ -33,7 +33,7 @@
  <Leader>t    |   n   | Tests: Test last                  |
  <Leader>g    |  vn   | Grep under cursor                 |
  <Leader>y    |  vn   | Yank to clipboard                 |
- <Leader>l    |   n   | noh: Hide search results          |
+ <Leader>o    |   n   | Expand current window             |
  <Leader>r    |   n   | LSP: Rename                       |
  <Leader>s    |   n   | LSP: Document symbols             |
  <Leader>x    |  v    | Quickfix : Remove selected        |
