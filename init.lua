@@ -124,8 +124,5 @@ require('git_config')
 -- Auto-completion
 require('completion')
 
--- Null-ls
--- require('null_ls_config')
-
 -- Tests
 require('tests')

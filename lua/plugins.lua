@@ -57,9 +57,6 @@ return require('packer').startup(function(use)
   -- Tests
   use 'vim-test/vim-test'
 
-  -- Null-LS
-  use 'jose-elias-alvarez/null-ls.nvim'
-
   -- Git
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
