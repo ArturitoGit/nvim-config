@@ -7,16 +7,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- NeoTree
-  use {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  }
+  -- Nerdtree
+  use 'preservim/nerdtree'
 
   -- Navigation with TMUX
   use 'christoomey/vim-tmux-navigator'

@@ -102,9 +102,6 @@ require('quickfix.remove')
 -- Theme
 require('theme')
 
--- Neotree
-require('neotree_config')
-
 -- Telescope
 require('telescope_config')
 
