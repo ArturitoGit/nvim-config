@@ -68,4 +68,7 @@ return require('packer').startup(function(use)
   -- Dev-ecosystem
   use 'ArturitoGit/dev-ecosystem.nvim'
 
+  -- Table mode
+  use 'dhruvasagar/vim-table-mode'
+
 end)
