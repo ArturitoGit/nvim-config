@@ -1,3 +1,7 @@
+-- Source vimrc
+vim.cmd('source ~/.vimrc')
+vim.cmd('set exrc')
+
 -- Leader key
 vim.keymap.set('n', '<space>', '<nop>')
 vim.g.mapleader = " "
