@@ -44,6 +44,23 @@ M.find_column = function(col, line, sep)
   return column_positions[col] + 1, column_positions[col + 1]
 end
 
+--- Get currently visible lines in current buffer
+---@return fun(): row: integer?, line: string? # Iterator on visible (row, line)
+local function visible_lines()
+
+  local top_line = vim.fn.line('w0') - 1
+  local bot_line = vim.fn.line('w$')
+  local lines = vim.api.nvim_buf_get_lines(0, top_line, bot_line, false)
+
+  local i = 0
+  return function()
+    i = i + 1
+    if lines[i] then
+      return top_line + i, lines[i]
+    end
+  end
+end
+
 --- Highlight provided column in current buffer
 ---@param col integer: The column to be highlighted
 M.column = function(col)
@@ -53,9 +70,7 @@ M.column = function(col)
 
   M.clear()
 
-  local lines = vim.api.nvim_buf_get_lines(buffer, 0, -1, false)
-  for row, line in pairs(lines) do
-
+  for row, line in visible_lines() do
     local col_start, col_end = M.find_column(col, line, sep)
     if col_start then
       vim.hl.range(buffer, namespace_id,
