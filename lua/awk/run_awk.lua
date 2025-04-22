@@ -10,6 +10,9 @@ local function has_scope(script)
   if string.match(script, "^%s*{") then
     return true
   end
+  if string.match(script, "^%s*%(") then
+    return true
+  end
   return false
 end
 
