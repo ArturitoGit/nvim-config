@@ -16,7 +16,7 @@ vim.api.nvim_create_user_command('Awk',
         return
       end
 
-      local preview = awk(text.current(), opts.args)
+      local preview = awk(text.current({ take = 20 }), opts.args)
       text.set(buf, preview)
 
       local column = column_under_cursor()
