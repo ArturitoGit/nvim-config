@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
 
   -- TreeSitter
   use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/playground'
 
   -- LSP
   use 'williamboman/mason.nvim'
