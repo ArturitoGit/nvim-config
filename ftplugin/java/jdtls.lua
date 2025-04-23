@@ -2,6 +2,11 @@ local utils = require('helpers/utils')
 local filter_nil = utils.filter_nil
 local if_defined = utils.if_defined
 
+-- Exit if jdtls is disabled
+if vim.g.jdtls_disabled then
+  return
+end
+
 -- Fetch configuration
 local config = require('config/config-tree').sub('java')
 if config == nil then
@@ -63,11 +68,11 @@ local jdtlsConfig = {
   },
 
   init_options = {
-    bundles = filter_nil(
-      if_defined(config.get('jdtls_bundle'), function(path)
-        return vim.split(vim.fn.glob(path .. "/*.jar"), "\n")
-      end)
-    ),
+    bundles = {
+      -- TODO : Move those paths in local configuration
+      vim.fn.glob('/home/abrouart/dev/lab/jdtls/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', true),
+      vim.fn.glob('/home/abrouart/dev/lab/jdtls/vscode-java-test/server/*.jar', true)
+    },
   },
 
   on_attach = function()
@@ -76,6 +81,7 @@ local jdtlsConfig = {
         return action.kind ~= 'quickassist'
       end})
     end, { buffer = 0 })
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
   end,
 
   -- Nvim-cmp provides additional capabilities, let JDTLS know about them
