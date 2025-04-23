@@ -58,7 +58,8 @@ require('lspconfig').eslint.setup {
   root_dir = function() return vim.fn.getcwd() end,
 }
 
-require('lspconfig').tsserver.setup {
+require('lspconfig').ts_ls.setup {
+  cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities,
   root_dir = function() return vim.fn.getcwd() end,
 }
