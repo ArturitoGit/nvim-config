@@ -100,6 +100,7 @@ vim.cmd('runtime ./vim/better-git.vim')
 vim.cmd('runtime ./vim/camel-case.vim')
 vim.cmd('runtime ./vim/better-git.vim')
 vim.cmd('runtime ./vim/easy-norm.vim')
+vim.cmd('runtime ./vim/maximize.vim')
 
 -- Plugins
 require('plugins')
