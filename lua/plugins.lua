@@ -69,6 +69,9 @@ return require('packer').startup(function(use)
   -- Table mode
   use 'dhruvasagar/vim-table-mode'
 
+  -- Database
+  use 'tpope/vim-dadbod'
+
   -- Vim wiki
   use 'vimwiki/vimwiki'
 
