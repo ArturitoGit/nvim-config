@@ -96,6 +96,7 @@ vim.cmd('runtime ./vim/abbreviations.vim')
 vim.cmd('runtime ./vim/tabline/tabline.vim')
 vim.cmd('runtime ./vim/autobracket/autobracket.vim')
 vim.cmd('runtime ./vim/quickfix-shrink-paths.vim')
+vim.cmd('runtime ./vim/better-git.vim')
 vim.cmd('runtime ./vim/camel-case.vim')
 vim.cmd('runtime ./vim/better-git.vim')
 

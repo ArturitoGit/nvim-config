@@ -61,3 +61,5 @@ augroup GitShowFolds
         \ foldtext=GitShowFoldText()
         \ foldlevel=0
 augroup END
+
+nnoremap <Leader>b :<C-u>G blame --date=short<CR>
