@@ -6,7 +6,7 @@ local column_under_cursor = require('awk.cursor_column').column_under_cursor
 vim.api.nvim_create_user_command('Awk',
   function(cmd)
     local result = awk(text.current(), cmd.args)
-    text.set(0, result)
+    text.set(0, result or '')
   end,
   {
     nargs = "*",
@@ -17,7 +17,7 @@ vim.api.nvim_create_user_command('Awk',
       end
 
       local preview = awk(text.current({ take = 20 }), opts.args)
-      text.set(buf, preview)
+      text.set(buf, preview or '...')
 
       local column = column_under_cursor()
       if column then

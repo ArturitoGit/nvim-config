@@ -61,6 +61,18 @@ local function visible_lines()
   end
 end
 
+--- Highlight given range in buffer
+--- Uses vim.hl or vim.highlight depending on neovim version
+---@param buffer integer
+---@param namespace integer
+---@param group string
+---@param left integer[]
+---@param right integer[]
+local function highlight(buffer, namespace, group, left, right)
+  local api = vim.hl or vim.highlight
+  api.range(buffer, namespace, group, left, right)
+end
+
 --- Highlight provided column in current buffer
 ---@param col integer: The column to be highlighted
 M.column = function(col)
@@ -73,7 +85,7 @@ M.column = function(col)
   for row, line in visible_lines() do
     local col_start, col_end = M.find_column(col, line, sep)
     if col_start then
-      vim.hl.range(buffer, namespace_id,
+      highlight(buffer, namespace_id,
         'Substitute',
         { row - 1, col_start  - 1 },
         { row - 1, col_end - 1 }
