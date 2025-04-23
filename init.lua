@@ -28,6 +28,12 @@ vim.o.expandtab=false
 vim.keymap.set('n', '<Left>', '20zh')
 vim.keymap.set('n', '<Right>', '20zl')
 
+
+-- Nextpane
+local nextpane = require 'nextpane'
+vim.keymap.set('n', '<Leader>ci', nextpane.interactive)
+vim.keymap.set('n', '<Leader>cl', nextpane.do_last)
+
 -- Grep configuration
 vim.o.grepprg = 'grep -IHrn --exclude-dir={\\.git,target,node_modules,dist,dump,.idea}'
 vim.o.grepformat = '%f:%l:%m'

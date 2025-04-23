@@ -26,6 +26,8 @@
  ^[hjkl]      |   n   | Navigation                        |
  <C-n>        |   n   | Telescope: find file              |   (x)
  <C-,>        |    i  | LSP: Signature help               |
+ <Leader>ci   |   n   | NextPane : Interactive mode       |
+ <Leader>cl   |   n   | NextPane : Run last command       |
  <Leader>e    |   n   | Open file-explorer                |
  <Leader>f    |  vn   | Telescope: live grep              |   (x)
  <Leader>b    |   n   | gitsigns: blame line              |
