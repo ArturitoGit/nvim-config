@@ -101,6 +101,7 @@ vim.cmd('runtime ./vim/camel-case.vim')
 vim.cmd('runtime ./vim/better-git.vim')
 vim.cmd('runtime ./vim/easy-norm.vim')
 vim.cmd('runtime ./vim/maximize.vim')
+vim.cmd('runtime ./vim/loclist/toggle/toggle_loclist.vim')
 
 -- Plugins
 require('plugins')
