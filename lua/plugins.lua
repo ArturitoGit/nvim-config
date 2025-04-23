@@ -69,4 +69,7 @@ return require('packer').startup(function(use)
   -- Table mode
   use 'dhruvasagar/vim-table-mode'
 
+  -- Vim wiki
+  use 'vimwiki/vimwiki'
+
 end)
