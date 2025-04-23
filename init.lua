@@ -99,6 +99,7 @@ vim.cmd('runtime ./vim/quickfix-shrink-paths.vim')
 vim.cmd('runtime ./vim/better-git.vim')
 vim.cmd('runtime ./vim/camel-case.vim')
 vim.cmd('runtime ./vim/better-git.vim')
+vim.cmd('runtime ./vim/easy-norm.vim')
 
 -- Plugins
 require('plugins')
