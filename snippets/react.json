@@ -1,0 +1,29 @@
+{
+  "str": {
+    "prefix": "str",
+    "body": [
+      "`\\${${1}\\}`"
+    ]
+  },
+  "var": {
+    "prefix": "var",
+    "body": [
+      "\\${${1}\\}"
+    ]
+  },
+  "reactFunctionComponent": {
+    "description": "Creates a React functional component without PropTypes",
+    "prefix": "rfc",
+    "body": [
+      "export const ${TM_FILENAME_BASE} = (props : {}) => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ]
+  }
+}
